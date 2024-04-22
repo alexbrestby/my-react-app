@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import './UserForm.sass';
+import Button from '../Button/Button';
 
 const UserForm = () => {
   const [name, setName] = useState('')
+  const [hasError, setHasError] = useState(false)
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+    setHasError(event.target.value.trim().length === 0)
+  }
 
   return (
     <>
@@ -13,8 +19,11 @@ const UserForm = () => {
           id='name'
           className='control'
           value={name}
-          onChange={(e) => setName(e.target.value)} />
+          onChange={handleChangeName}
+          style={{ border: hasError ? '2px solid red' : null }}
+        />
       </form>
+      <Button disabled={hasError}>Send</Button >
       <pre>
         Name: {name}
       </pre>

@@ -1,8 +1,8 @@
 import './Button.sass'
 
-const Button = ({ children, onClick, isActive }) => {
+const Button = ({ children, isActive, ...props }) => {
   return (
-    <button className={isActive ? 'button active' : 'button'} onClick={onClick}>
+    <button className={isActive ? 'button active' : 'button'} {...props}>
       {children}
     </button>
   )
