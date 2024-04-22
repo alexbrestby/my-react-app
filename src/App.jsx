@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.sass'
 import Button from './components/Button/Button'
 import Header from './components/Header/Header';
+import UserForm from './components/UserForm/UserForm';
 
 const App = () => {
   const [content, changeContent] = useState('Нажми на кнопку');
@@ -17,6 +18,7 @@ const App = () => {
       <Button isActive={content == 'button-2'} onClick={() => handleClick('button-2')}>button-2</Button>
       <Button isActive={content == 'button-3'} onClick={() => handleClick()}>button-3</Button>
       <p>{content}</p>
+      <UserForm />
     </div >
   )
 }
