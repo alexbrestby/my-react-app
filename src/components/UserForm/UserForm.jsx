@@ -3,11 +3,23 @@ import './UserForm.sass';
 import Button from '../Button/Button';
 
 const UserForm = () => {
-  const [name, setName] = useState('')
-  const [hasError, setHasError] = useState(false)
+  // const [name, setName] = useState('')
+  // const [hasError, setHasError] = useState(false)
+
+  const [form, setForm] = useState({
+    name: '',
+    hasError: false,
+  })
+
   const handleChangeName = (event) => {
-    setName(event.target.value);
-    setHasError(event.target.value.trim().length === 0)
+    // setName(event.target.value);
+    // setHasError(event.target.value.trim().length === 0)
+
+    setForm(prev => ({
+      ...prev,
+      name: event.target.value,
+      hasError: event.target.value.trim().length === 0,
+    }))
   }
 
   return (
@@ -18,14 +30,14 @@ const UserForm = () => {
           type='text'
           id='name'
           className='control'
-          value={name}
+          value={form.name}
           onChange={handleChangeName}
-          style={{ border: hasError ? '2px solid red' : null }}
+          style={{ border: form.hasError ? '2px solid red' : null }}
         />
       </form>
-      <Button disabled={hasError}>Send</Button >
+      <Button disabled={form.hasError}>Send</Button >
       <pre>
-        Name: {name}
+        Name: {form.name}
       </pre>
     </>
 
