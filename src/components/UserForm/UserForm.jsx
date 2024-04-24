@@ -3,8 +3,6 @@ import './UserForm.sass';
 import Button from '../Button/Button';
 
 const UserForm = () => {
-  // const [name, setName] = useState('')
-  // const [hasError, setHasError] = useState(false)
 
   const [form, setForm] = useState({
     name: '',
@@ -12,9 +10,6 @@ const UserForm = () => {
   })
 
   const handleChangeName = (event) => {
-    // setName(event.target.value);
-    // setHasError(event.target.value.trim().length === 0)
-
     setForm(prev => ({
       ...prev,
       name: event.target.value,
